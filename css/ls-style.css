@@ -1,0 +1,61 @@
+.button-up{
+    background-color: hsla(107, 92%, 45%, 0.856);
+    border-radius: 0.5rem;
+    height: 30px;
+    width: 70px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 10px;
+}
+.button-down{
+    background-color: rgb(246, 195, 9);
+    border-radius: 0.5rem;
+    height: 30px;
+    width: 70px;
+    font-weight: 500;
+    display: block;
+}
+
+hr{
+    border: 2px solid black;
+    display: inline-block;
+    width: 85%;
+    padding-right: 10px;
+    
+}
+
+h3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: inline;
+    padding-bottom: 5px;
+}
+
+.container{
+    margin: 80px auto 10px auto;
+    width: 90%;
+    
+}
+.button-container{
+    display: inline-block;
+}
+.elevator-1{
+    height: 120px;
+    width: 90px;
+    background-color: rgba(53, 130, 218, 0.829);
+    display: inline-block;
+    margin-left:45px;
+    margin-bottom: -10px;
+}
+
+.elevator-2{
+    height: 120px;
+    width: 90px;
+    background-color: rgba(53, 130, 218, 0.829);
+    display: inline-block;
+    margin-left:600px;
+    margin-bottom: -20px;
+}
+
+.even-spacing{
+    margin-top: 50px;
+}
