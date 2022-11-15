@@ -1,5 +1,3 @@
-
-
 h1{
     margin: 10px auto 5px auto;
     font-family: Tahoma;
@@ -7,7 +5,7 @@ h1{
     text-align: center;
 }
 
-.container{
+.container-form{
     margin: 20px auto 0 auto;
     padding: 10px 10px 5px 10px;
     background-color: #cbd5e1;
@@ -34,7 +32,9 @@ input{
     padding: 10px 5px;
 }
 
-button{
+
+
+.button-submit{
     font-size: 28px;
     font-weight: 500;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -45,7 +45,89 @@ button{
 
 }
 
-footer{
-    margin-top: 10px;
+
+main{
+    margin-left: 50px;
+  
+}
+.button-up{
+    background-color: hsla(107, 92%, 45%, 0.856);
+    border-radius: 0.5rem;
+    height: 30px;
+    width: 70px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    content: 'Up';
+}
+.button-down{
+    background-color: rgb(246, 195, 9);
+    border-radius: 0.5rem;
+    height: 30px;
+    width: 70px;
+    font-weight: 500;
+    display: block;
+    font-size: 18px;
+    content: "Down";
+ 
+}
+
+hr{
+    border: 2px solid black;
+    display: inline-block;
+    width: 85%;
+    padding-right: 10px;
     
 }
+
+h3{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: inline;
+    margin-bottom: 15px;
+    margin-left: 10px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 10px 5px;
+    
+}
+.button-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.elevator-container{
+    display: flex;
+    justify-content: start;
+    /* margin: 0 10px 15px 0; */
+    flex-wrap: wrap;
+
+}
+.elevator-1{
+    height: 120px;
+    width: 90px;
+    background-color: rgba(53, 130, 218, 0.829);
+    display: inline-block;
+    margin-left:45px;
+    margin-bottom: -0px;
+}
+
+.elevator-2{
+    height: 120px;
+    width: 90px;
+    background-color: rgba(53, 130, 218, 0.829);
+    display: inline-block;
+    margin-left:60px;
+    margin-bottom: -10px;
+    
+    /* margin-bottom: 2px; */
+}
+
+.even-spacing{
+    margin-top: 50px;
+}
+
