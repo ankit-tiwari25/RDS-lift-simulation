@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="css/styles.css"> -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/demo-style.css">
     <title>Lift Simulation</title>
     
 </head>
@@ -14,25 +14,24 @@
         <h1>Lift Simulation</h1>
     </header>
     <main>
+        
         <div class="container-form" id="container-form">
           
                 <label for="floors">Floors</label>
-                <input type="number" min="1" max="5" id="floors" name="floors">
+                <input type="number" min="1" max="5"  name="floor-counts" id="floor-count">
 
                 <label for="lifts">Lifts</label>
-                <input type="number" id="lifts" min="1" max="6" class="lifts">
+                <input type="number"  min="1" max="6" class="lift-count" id="lift-count">
 
                 <button type="submit" id="submit" class="button-submit">Submit</button>
           
         </div>
 
-        <div class="container-ls">
-
-
-
-
+        <div class="ls-container" id="ls-container" style="display: none;">
 
         </div>
+
+    
     </main>
    
  
