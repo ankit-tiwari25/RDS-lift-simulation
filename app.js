@@ -2,6 +2,8 @@
 // Getting submit button
 const submitButton = document.getElementById("submit");
 let initialFloorCount;
+let initialLiftCount;
+let sourceFloorCount = null;
 submitButton.addEventListener("click", function(){
     //hide form elements and show lift simulation div
     hideFormElements();
@@ -9,6 +11,7 @@ submitButton.addEventListener("click", function(){
     let liftCount = document.getElementById("lift-count").value;
 
     initialFloorCount = floorCount;
+    initialLiftCount = liftCount;
 
     console.log("Submit button clicked");
     console.log("floor count : " + floorCount);
@@ -77,6 +80,12 @@ function hideFormElements(){
    if(floorCount != initialFloorCount){
       const buttonUp = document.createElement('button');
     buttonUp.classList.add('button-up');
+    let buttonUpId  = "button-up-"+floorCount;
+    buttonUp.setAttribute("id", buttonUpId);
+
+    buttonUp.addEventListener("click", ()=>{
+        elevatorUp(floorCount);
+    });
     buttonUp.innerText = "Up";
     buttonContainer.append(buttonUp);
    }
@@ -85,6 +94,11 @@ function hideFormElements(){
     if(floorCount != 1){
       const buttonDown = document.createElement('button');
       buttonDown.classList.add('button-down');
+      let buttonDownId  = "button-down-"+floorCount;
+      buttonDown.setAttribute("id", buttonDownId);
+      buttonDown.addEventListener("click", ()=>{
+         elevatorDown(floorCount);
+     });
       buttonDown.innerText = "Down";
       buttonContainer.append(buttonDown);
     }
@@ -137,10 +151,24 @@ function hideFormElements(){
 
     // Add elevators in elevator container based on lift count
     const liftContainer = document.createElement('div');
-    liftContainer.classList.add('lift-container')
+    liftContainer.classList.add('lift-container');
+    liftContainer.setAttribute("id", "lift-container-"+floorCount);
     while(liftCount > 0 && floorCount == 1){
       const singleLift = document.createElement('div');
       singleLift.classList.add('lift');
+      
+
+
+      // ------------------- Creating Door -------------
+      const liftDoor = document.createElement('div');
+     
+      if(liftCount == initialLiftCount){
+         singleLift.classList.add('first-lift');
+         liftDoor.classList.add('lift-door');
+         singleLift.setAttribute("id","moving-lift");
+      }
+      
+      singleLift.append(liftDoor);
       // singleLift.style.marginLeft = 50 * floorCount +" px";
       liftContainer.append(singleLift);
       liftCount--;
@@ -148,4 +176,56 @@ function hideFormElements(){
   return liftContainer;
  }
 
+ function elevatorUp(floorCount){
+    
+   sourceFloorCount = floorCount;
+    console.log("Up button clicked id: "+ floorCount);
+    // Getting lift element
+      const movingLift = document.getElementById("moving-lift"); 
+      const destinationDiv = document.getElementById("lift-container-"+floorCount);
+     
+   var rect = destinationDiv.getBoundingClientRect();
+   console.log(rect.top, rect.right, rect.bottom, rect.left);
+   //  console.log(movingLift);
+
+   //  ----Animation-----
+   // create a timeline
+let tl = gsap.timeline()
+let pos = -(floorCount-1)*(10.3)*16+"px";
+tl.to(movingLift, { y:pos, duration: 2 });
+
+// Opening the door
+let t2 = gsap.timeline()
+
+    const door = document.getElementsByClassName('lift-door');
+t2.to(door, { x:80 , duration: 2 });
+t2.to(door, { x:0 , duration: 2 });
+ }
  
+
+ function elevatorDown(floorCount){
+    console.log("Down button clicked id: "+ floorCount);
+
+    
+      elevatorUp(floorCount);
+      
+
+//     const movingLift = document.getElementById("moving-lift"); 
+  
+//     const destinationDiv = document.getElementById("lift-container-"+floorCount);
+
+//     console.log("Source "+sourceFloorCount);
+//     console.log("Destination : "+floorCount);
+
+//    var rect = destinationDiv.getBoundingClientRect();
+//    console.log(rect.top, rect.right, rect.bottom, rect.left);
+//    //  console.log(movingLift);
+
+//    //  ----Animation-----
+//    // create a timeline
+// let tl = gsap.timeline()
+// let pos = (sourceFloorCount - floorCount)*10.3*8+"px";
+// console.log("pos"+pos);
+// tl.to(movingLift, { y:pos, duration: 2 });
+
+ }
